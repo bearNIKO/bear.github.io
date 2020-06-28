@@ -1,0 +1,24 @@
+<!--pages/my/setUser/setUser.wxml-->
+<view class="container">
+  <view class="head">
+    设置
+  </view>
+  <view class="nav">
+    <view class="userInfo" bindtap="toNull">
+      个人信息
+      <view class="icon iconfont icon-you"></view>
+      <view class="text">待授权</view>
+    </view>
+    <view style="width: 100%;height: 10rpx;"></view>
+    <view class="security" bindtap="toNull">
+      账号安全
+      <view class="icon iconfont icon-you"></view>
+      <view class="text">待设置</view>
+    </view>
+  </view>
+  <view class="feedBack" bindtap="toFeedBack">
+    意见反馈<view class="icon iconfont icon-you"></view>
+  </view>
+  <view class="clearUsers" bindtap="clearLogin" wx:if="{{showClear}}">退出登入</view>
+  <van-toast id="van-toast"/>
+</view>

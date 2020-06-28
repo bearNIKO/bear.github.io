@@ -1,0 +1,5 @@
+<!--pages/wxLogin/wxLogin.wxml-->
+<view class="container">
+  <button class="wxLogin" open-type="getUserInfo" bindgetuserinfo="login">授权注册登入</button>
+  <van-toast id="van-toast"/>
+</view>

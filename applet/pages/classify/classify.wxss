@@ -1,0 +1,176 @@
+/* pages/classify/classify.wxss */
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #F6F6F6;
+}
+.container .head {
+  width: 100%;
+  height: 100rpx;
+  background: linear-gradient(270deg,#fe3c35 0,#ff1f4c 100%);
+}
+.container .head .head_back {
+  float: left;
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 50rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+}
+.container .head .head_search {
+  float: left;
+  width: 620rpx;
+  height: 66rpx;
+  margin-top: 17rpx;
+  border-radius: 10rpx;
+  background: white;
+}
+.container .head .head_search .search_icon {
+  float: left;
+  width: 66rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #959595;
+}
+.container .head .head_search .head_text {
+  line-height: 66rpx;
+  font-size: 28rpx;
+  color: #ccc;
+}
+
+.container .left {
+  position: absolute;
+  left: 0;
+  top: 100rpx;
+  bottom: 0;
+  width: 150rpx;
+  overflow: hidden;
+}
+.container .left .item {
+  width: 150rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.container .left .item.active {
+  color: #fc3f78;
+  border-left: 4rpx solid #fc3f78;
+  background: white;
+}
+
+/* 没有数据显示 */
+.container .right_z {
+  position: absolute;
+  left: 150rpx;
+  top: 100rpx;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  overflow: hidden;
+}
+.container .right_z .items {
+  width: 100%;
+}
+.container .right_z .items .title {
+  width: 100rpx;
+  height: 40rpx;
+  border-radius: 10rpx;
+  background: #ccc;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+}
+.container .right_z .items .cat_item {
+  margin-top: 30rpx;
+  height: 180rpx;
+  float: left;
+  width: 33%;
+}
+.container .right_z .items .cat_item .img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: #ccc;
+}
+.container .right_z .items .cat_item .text {
+  width: 100rpx;
+  height: 30rpx;
+  margin: 0 auto;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+  background: #ccc;
+}
+
+/* 有数据显示 */
+.container .right {
+  position: absolute;
+  left: 150rpx;
+  top: 100rpx;
+  width: 600rpx;
+  bottom: 0;
+  background: #fff;
+}
+.container .right .items {
+  width: 600rpx;
+}
+.container .right .items .title {
+  width: 130rpx;
+  height: 40rpx;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+  padding-top: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.container .right .items .cat_item {
+  margin-top: 30rpx;
+  height: 180rpx;
+  float: left;
+  width: 33%;
+}
+.container .right .items .cat_item .img {
+  display: block;
+  width: 110rpx;
+  height: 110rpx;
+  margin: 0 auto;
+}
+.container .right .items .cat_item .text {
+  width: 110rpx;
+  height: 30rpx;
+  margin: 0 auto;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+::scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}

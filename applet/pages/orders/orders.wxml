@@ -1,0 +1,170 @@
+<!--pages/orders/orders.wxml-->
+<wxs module="filter" src="./numberToFixed.wxs"></wxs>
+<view class="container">
+  <view class="userInfo" bindtap="showPopup">
+    <view class="userInfo_box">
+      <image class="userInfo_box_img" src="./images/position.png"></image>
+      <view class="userInfo_box_text" wx:if="{{userPositions.length}}">
+        <view class="userInfo_box_text_info">
+          <text class="user_name">{{userPositions[userActiveIndex].userName}}</text>
+          <text class="user_phone">{{userPositions[userActiveIndex].userPhone}}</text>
+        </view>
+        <view class="userInfo_box_text_psit">{{userPositions[userActiveIndex].userPosition}}</view>
+      </view>
+      <view class="userInfo_box_icon_box"></view>
+      <view class="userInfo_box_icon iconfont icon-you"></view>
+    </view>
+  </view>
+  <view class="goodsInfo" wx:if="{{goods.length}}">
+    <view class="goodsInfo_box" wx:for="{{goods}}" wx:key="index">
+      <view class="goodsInfo_box_title">
+        <image class="goodsInfo_box_title_img" src="./images/tianmao.png"></image>自营店
+      </view>
+      <view class="goodsInfo_box_good">
+        <image class="goodsInfo_box_good_img" src="{{imgServer+item.swiper[0]}}"></image>
+        <view class="goodsInfo_box_good_desce">
+          <view class="goodsInfo_box_good_desce_info">
+            <view class="title">{{item.title}}</view>
+            <view class="type">{{goodsTypeItem[item.goodsType-1].name}}</view>
+          </view>
+        </view>
+        <view class="goodsInfo_box_good_price">
+          <view class="price_money">￥{{item.price}}</view>
+          <view class="price_age">x{{item.allConut}}</view>
+        </view>
+      </view>
+      <view class="goodsInfo_box_describe">
+        <view class="goodsInfo_box_describe_item">
+          <view class="left">
+            配送方式\r\n\r\n<text>普通配送</text>
+          </view>
+          <view class="right">
+            快递 免邮<text class="iconfont icon-you"></text>
+          </view>
+          <view style="clear:both"></view>
+        </view>
+        <view class="goodsInfo_box_describe_item">
+          <view class="left">
+            店铺优惠\r\n\r\n<text>省{{item.juan}}元</text>
+          </view>
+          <view class="right">
+            -￥{{item.juan}}<text class="iconfont icon-you"></text>
+          </view>
+          <view style="clear:both"></view>
+        </view>
+      </view>
+      <view class="goodsInfo_box_price">
+        <view class="goodsInfo_box_price_money"><text class="age">共{{item.allConut}}件</text>小计:\r\n<text class="rmb">￥</text><text class="money">{{filter.numberToFixed(item.allConut*item.price)}}</text></view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom_box"></view>
+  <view class="back_top iconfont .icon-shang1 {{back_top_show?'back_top_show':''}}" bindtap="back_top"></view>
+  <van-toast id="van-toast"/>
+</view>
+<van-submit-bar
+  price="{{ goodsPrice }}"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+/>
+<!-- 用户地址 -->
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 100%"
+>
+  <view class="user_position">
+    <view class="user_position_head">
+      <view class="back iconfont icon-fanhui" bindtap="onClose"></view>
+      <view class="text">我的收货地址</view>
+      <view class="add" bindtap="showAddPopup">添加新地址</view>
+    </view>
+    <view class="user_position_info" wx:if="{{userPositions.length}}">
+      <view class="user_position_info_item" wx:for="{{userPositions}}" wx:key="index">
+        <view class="text_one">{{item.userName[0]}}</view>
+        <view class="info" data-index="{{index}}" bindtap="activeUserPosition">
+          <view class="users"><text class="name">{{item.userName}}</text> <text class="phone">{{item.userPhone}}</text></view>
+          <view class="position"> <text class="moren" wx:if="{{item.userMoren}}">默认</text>{{item.userPosition}}</view>
+        </view>
+        <view class="deit" bindtap="showDeitPopup" data-index="{{index}}">编辑</view>
+      </view>
+    </view>
+  </view>
+</van-popup>
+<!-- 添加地址 -->
+<van-popup
+  show="{{ addShow }}"
+  position="right"
+  custom-style="height: 100%; width: 100%"
+>
+  <view class="user_add">
+    <view class="user_add_head">
+      <view class="back iconfont icon-fanhui" bindtap="onAddClose"></view>
+      <view class="text">添加收获地址</view>
+      <view class="add" bindtap="addUserPositionSave">保存</view>
+    </view>
+    <van-cell-group>
+      <van-field
+        value="{{ userName }}"
+        label="收货人"
+        placeholder="请输入收货人"
+        bind:change="onChangeName"
+      />
+      <van-field
+        value="{{ userPhone }}"
+        label="手机号"
+        placeholder="请输入手机号"
+        border="{{ true }}"
+        bind:change="onChangePhone"
+      />
+      <van-field
+        value="{{ userPosition }}"
+        label="地址"
+        placeholder="详细地址"
+        border="{{ true }}"
+        bind:change="onChangePosition"
+      />
+    </van-cell-group>
+  </view>
+</van-popup>
+<!-- 修改地址 -->
+<van-popup
+  show="{{ deitShow }}"
+  position="right"
+  custom-style="height: 100%; width: 100%; background: #fff;"
+>
+  <view class="user_deit">
+    <view class="user_deit_head">
+      <view class="back iconfont icon-fanhui" bindtap="onDeitClose"></view>
+      <view class="text">编辑收获地址</view>
+      <view class="add" bindtap="deitUserPositionSave">保存</view>
+    </view>
+    <van-cell-group>
+      <van-field
+        value="{{ userName }}"
+        label="收货人"
+        border="{{ true }}"
+        placeholder="请输入收货人"
+        bind:change="onChangeName"
+      />
+      <van-field
+        value="{{ userPhone }}"
+        label="手机号"
+        placeholder="请输入手机号"
+        border="{{ true }}"
+        bind:change="onChangePhone"
+      />
+      <van-field
+        value="{{ userPosition }}"
+        label="地址"
+        placeholder="详细地址"
+        border="{{ true }}"
+        bind:change="onChangePosition"
+      />
+    </van-cell-group>
+    <view class="user_deit_delete" bindtap="deleteUserPositionSave">
+      删除收获地址
+    </view>
+  </view>
+</van-popup>
+<van-dialog id="van-dialog" />

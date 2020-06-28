@@ -1,0 +1,10 @@
+      swiper1: /static/goods/223455/swiper01.jpg,/static/goods/223455/swiper02.jpg,/static/goods/223455/swiper03.jpg,/static/goods/223455/swiper04.jpg,/static/goods/223455/swiper05.jpg,/static/goods/223455/swiper06.jpg,
+      swiper2: /static/goods/223456/swiper01.jpg,/static/goods/223456/swiper02.jpg,/static/goods/223456/swiper03.jpg,/static/goods/223456/swiper04.jpg,/static/goods/223456/swiper05.jpg,/static/goods/223456/swiper06.jpg,
+      swiper3: /static/goods/223457/swiper01.jpg,/static/goods/223457/swiper02.jpg,/static/goods/223457/swiper03.jpg,/static/goods/223457/swiper04.jpg,/static/goods/223457/swiper05.jpg,/static/goods/223457/swiper06.jpg,
+      swiper4: /static/goods/223458/swiper01.jpg,/static/goods/223458/swiper02.jpg,/static/goods/223458/swiper03.jpg,/static/goods/223458/swiper04.jpg,/static/goods/223458/swiper05.jpg,/static/goods/223458/swiper06.jpg,
+      swiper5: /static/goods/223459/swiper01.jpg,/static/goods/223459/swiper02.jpg,/static/goods/223459/swiper03.jpg,/static/goods/223459/swiper04.jpg,/static/goods/223459/swiper05.jpg,/static/goods/223459/swiper06.jpg,
+      desc1: /static/goods/223455/desc01.jpg,/static/goods/223455/desc02.jpg,/static/goods/223455/desc03.jpg,/static/goods/223455/desc04.jpg,/static/goods/223455/desc05.jpg,/static/goods/223455/desc06.jpg,
+      desc2: /static/goods/223456/desc01.jpg,/static/goods/223456/desc02.jpg,/static/goods/223456/desc03.jpg,/static/goods/223456/desc04.jpg,/static/goods/223456/desc05.jpg,/static/goods/223456/desc06.jpg,
+      desc3: /static/goods/223457/desc01.jpg,/static/goods/223457/desc02.jpg,/static/goods/223457/desc03.jpg,/static/goods/223457/desc04.jpg,/static/goods/223457/desc05.jpg,/static/goods/223457/desc06.jpg,
+      desc4: /static/goods/223458/desc01.jpg,/static/goods/223458/desc02.jpg,/static/goods/223458/desc03.jpg,/static/goods/223458/desc04.jpg,/static/goods/223458/desc05.jpg,/static/goods/223458/desc06.jpg,
+      desc5: /static/goods/223459/desc01.jpg,/static/goods/223459/desc02.jpg,/static/goods/223459/desc03.jpg,/static/goods/223459/desc04.jpg,/static/goods/223459/desc05.jpg,/static/goods/223459/desc06.jpg

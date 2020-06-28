@@ -1,0 +1,36 @@
+<!--pages/tool/orderInfo/orderInfo.wxml-->
+<view class="container">
+  <view class="head">
+    订单查询
+  </view>
+  <view style="height: 100rpx;width:100%;background-color: #fff"></view>
+  <view class="search">
+    <view class="icon">
+      <text class="iconfont icon-icon-test"></text>
+    </view>
+    <view class="search_box">
+      <input type="text" bindinput="searchList" placeholder="请输入淘宝订单编号"></input>
+      <view class="text" catchtap="sublimeSearch">查询</view>
+    </view>
+  </view>
+  <van-toast id="van-toast"/>
+  <view class="section">
+    <view class="title">如何获取订单编号？</view>
+    <view class="step"><text>1.</text>\r\n打开手机“淘宝”<view></view>\r\n\r\n\r\n\r\n淘宝APP-我的淘宝-查看全部订单</view>
+    <image class="rule_img" src="../images/rule-msg.png"></image>
+    <view class="step"><text>1.</text>\r\n找到需要查询的订单，进入详情页复制订单编号<view></view>\r\n\r\n\r\n\r\n   订单详情页内找到订单信息，点击【复制】订单编号</view>
+    <image class="rule_img" src="../images/rule-msg2.png"></image>
+  </view>
+  <view class="rule_msg">
+    <view class="title">查询规则说明：</view>
+    <view class="msg">
+      1. 购买人没同步的订单可通过订单查询找回
+      <view></view>
+      2. 当有多个用户同时查询同一订单编号时，以第一个输入人为准
+      <view></view>
+      3. 已归属的订单不支持查询。如查询，则会反馈查找不到该订单的提示
+      <view></view>
+      4. 奖励积分会按查找人的当前用户关系进行归属。建议购买人自查，不帮别人查询，避免误操作
+    </view>
+  </view>
+</view>

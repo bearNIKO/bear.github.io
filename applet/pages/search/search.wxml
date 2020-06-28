@@ -1,0 +1,76 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+  <view class="head">
+    <view class="search_box">
+      <view class="search">
+        <input bindinput="searchItem" value="{{inputSearchItem}}" bindblur="onBindInputBlur"></input>
+      </view>
+      <view class="delete_icon iconfont icon-shanchu1 {{inputSearchItem?'active':''}}" bindtap="removeSearchItem"></view>
+      <view class="btn" bindtap="addSearchItem">搜索</view>
+    </view>
+  </view>
+  <van-toast id="van-toast"/>
+  <view style="width:100%;height: 100rpx;background:#fff;"></view>
+  <view class="nav">
+    <view class="hr"></view>
+    <view class="help">
+      <view class="title">三步轻松获得优惠券</view>
+      <view class="cart">
+        <view class="item">
+          <image class="img" src="./images/step1.png"></image>1.进入淘宝
+        </view>
+        <view class="item">
+          <image class="img" src="./images/step2.png"></image>2.复制商品标题
+        </view>
+        <view class="item">
+          <image class="img" src="./images/step3.png"></image>3.点击搜索查询
+        </view>
+        <view style="clear:both"></view>
+      </view>
+    </view>
+    <view class="hr"></view>
+    <view class="hisSearch" wx:if="{{hisSearchInfo.length}}">
+      <view class="title">
+        历史搜索
+        <view class="delete iconfont icon-shanchu" bindtap="deletSearchAll"></view>
+      </view>
+      <view class="text {{hisSearchListShow?'active':''}}">
+        <view class="text_item" wx:for="{{hisSearchInfo}}" wx:key="index" bindtap="toastMessage">{{item}}</view>
+      </view>
+      <view class="iconfont icon-xia history_more_dd {{hisSearchListShow?'active':''}}" bindtap="showHisSearchAll"></view>
+    </view>
+    <view class="searchBottom" wx:if="{{hisSearchInfo.length}}">
+      <view class="borderBottom"></view>
+    </view>
+    <view class="search_hot_act">
+      <view class="title">
+        搜索发现
+      </view>
+      <view class="text">
+        <view class="text_item" wx:for="{{searchInfo}}" wx:key="index" bindtap="toastMessage">{{item}}</view>
+      </view>
+    </view>
+    <view class="hr"></view>
+    <view class="rank_list">
+      <view class="title">热搜榜</view>
+      <view class="items">
+        <view class="item" wx:for="{{hots}}" wx:key="index" bindtap="toastMessage">
+          <view class="rank {{[item.type == 2 ? 'active' : '', item.type == 3 ? 'actives' : '']}}">
+            <image class="img" src="{{imgServer+item.rank}}"></image>
+          </view>
+          <view class="product">
+            <image class="img" src="{{imgServer+item.image}}"></image>
+            <view class="box">
+              <view class="title">{{item.title}}</view>
+              <text class="num">
+                <text class="icon iconfont icon-jiantoushang"></text>{{item.number}}
+              </text>
+            </view>
+          </view>
+          <view class="rank_label {{[item.hot=='爆'?'red':'',item.hot=='火'?'red':'',item.hot=='荐'?'green':'',item.hot=='新'?'yellow':'']}}" wx:if="item.hot">{{item.hot}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

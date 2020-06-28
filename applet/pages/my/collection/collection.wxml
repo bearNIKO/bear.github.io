@@ -1,0 +1,73 @@
+<!--pages/my/footPrint/footPrint.wxml-->
+<import src="/template/goodsHistory/goodsHistory.wxml"/>
+<import src="/template/goodsRecommend/goodsRecommend.wxml"/>
+<view class="container">
+  <view class="print_head">
+    我的收藏<view class="print_head_delete iconfont icon-shanchu" catchtap="showDialog"></view>
+  </view>
+  <scroll-view scroll-y="true" bindscroll="onScrollView" scroll-top='{{topNum}}' class="print_list">
+    <view class="print_list_muban" wx:if="{{onLoadShow}}">
+      <view class="print_list_muban_item">
+        <view class="img"></view>
+        <view class="box">
+          <view class="title"></view>
+          <view class="price"></view>
+          <view class="bottom">
+            <view class="juan"></view>
+            <view class="comment"></view>
+          </view>
+        </view>
+      </view>
+      <view class="print_list_muban_item">
+        <view class="img"></view>
+        <view class="box">
+          <view class="title"></view>
+          <view class="price"></view>
+          <view class="bottom">
+            <view class="juan"></view>
+            <view class="comment"></view>
+          </view>
+        </view>
+      </view>
+      <view class="print_list_muban_item">
+        <view class="img"></view>
+        <view class="box">
+          <view class="title"></view>
+          <view class="price"></view>
+          <view class="bottom">
+            <view class="juan"></view>
+            <view class="comment"></view>
+          </view>
+        </view>
+      </view>
+      <view class="print_list_muban_item">
+        <view class="img"></view>
+        <view class="box">
+          <view class="title"></view>
+          <view class="price"></view>
+          <view class="bottom">
+            <view class="juan"></view>
+            <view class="comment"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="print_list_null" wx:if="{{!userPrints.length}}">
+      <image class="img" src="./images/search-none2s.png"></image>
+      <view class="text">暂无收藏</view>
+      <view class="button" bindtap="toIndex">去首页逛逛吧</view>
+    </view>
+    <template is="goodsHistory" data="{{userPrints, toGoodsInfo, imgServer, index, printLeft, toGoodsInfo}}" ></template>
+    <template is="goodsRecommend" data="{{goodsRecommendList, toGoodsInfo, imgServer, titleShow, index}}" ></template>
+  </scroll-view>
+  <view class="back_top iconfont .icon-shang1 {{back_top_show?'back_top_show':''}}" bindtap="back_top"></view>
+</view>
+<van-toast id="van-toast" />
+<van-dialog
+  id="van-dialog" 
+  width= "460rpx"
+  confirm-button-color= "#FF1F4C"
+  bind:close="onClose"
+  bind:getuserinfo="getUserInfo"
+>
+</van-dialog>

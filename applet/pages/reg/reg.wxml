@@ -1,0 +1,35 @@
+<!--pages/reg/reg.wxml-->
+<view class="container">
+  <view class="login">
+    <view class="user_head">
+      <image class="img" src="./images/user_head2.png"></image>
+    </view>
+    <view class="option">
+      <view class="user">
+        <input type="text" bindinput="nameText" class="user_name" value="{{name}}" placeholder="请输入名称"></input>
+        <view class="delete iconfont icon-shanchu1 {{name?'active':''}}" bindtap="deleteName"></view>
+      </view>
+      <view class="user">
+        <input type="text" bindinput="userNameText" class="user_name" value="{{userName}}" placeholder="请输入账号"></input>
+        <view class="delete iconfont icon-shanchu1 {{userName?'active':''}}" bindtap="deleteUser"></view>
+      </view>
+      <view class="pass">
+        <input type="password" bindinput="passWordText" class="pass_name" value="{{passWord}}" placeholder="请输入登录密码"></input>
+        <view class="delete iconfont icon-shanchu1 {{passWord?'active':''}}" bindtap="deletePass"></view>
+      </view>
+      <view class="user">
+        <input type="text" bindinput="emailText" class="user_name" value="{{email}}" placeholder="请输入邮件号"></input>
+        <view class="delete iconfont icon-shanchu1 {{email?'active':''}}" bindtap="deleteEmail"></view>
+      </view>
+      <view class="desc">
+        <view class="wx_login" bindtap="toWxLogin">微信登录</view>
+        <view class="reg" bindtap="toLogin">返回登入</view>
+        <view style="clear:both"></view>
+      </view>
+      <view class="submit" bindtap="submitReg">
+        立即注册
+      </view>
+    </view>
+  </view>
+  <van-toast id="van-toast"/>
+</view>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <!-- dns预获取 dns-prefetch 提升页面载入速度 -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <!-- 告诉IE浏览器用edge引擎渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Web应用会以全屏模式运行-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 取消手机自动将网页中的电话号码显示为属拨号的超链接 -->
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1.0,user-scalable=no">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title></title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <script>
+      //设置根元素字体大小
+      document.documentElement.style.fontSize = document.documentElement.clientWidth/10 + 'px'
+      // 监听 屏幕大小的改变
+      window.addEventListener('resize',()=>{
+        document.documentElement.style.fontSize = document.documentElement.clientWidth/10 + 'px'
+      })
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

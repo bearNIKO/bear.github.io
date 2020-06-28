@@ -1,0 +1,89 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/orderList/orderList",
+    "pages/my/my",
+    "pages/shopcart/shopcart",
+    "pages/orders/orders",
+    "pages/odds/odds",
+    "pages/my/collection/collection",
+    "pages/my/footPrint/footPrint",
+    "pages/goodsInfo/goodsInfo",
+    "pages/classify/classify",
+    "pages/wxLogin/wxLogin",
+    "pages/reg/reg",
+    "pages/my/setUser/setUser",
+    "pages/tool/orderInfo/orderInfoItem/orderInfoItem",
+    "pages/tool/orderInfo/orderInfo",
+    "pages/search/search",
+    "pages/tool/couponHelp/couponHelp",
+    "pages/tool/customer/customer",
+    "pages/login/login",
+    "pages/tool/feedBack/feedBack",
+    "template/goodsHistory/goodsHistory",
+    "template/goodsRecommend/goodsRecommend"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FE313D",
+    "navigationBarTitleText": "汇折扣",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#FD575C",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/public/tabbar/home.png",
+        "selectedIconPath": "/public/tabbar/homer.png"
+      },
+      {
+        "pagePath": "pages/odds/odds",
+        "text": "9.9包邮",
+        "iconPath": "/public/tabbar/nine.png",
+        "selectedIconPath": "/public/tabbar/niner.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "/public/tabbar/classify.png",
+        "selectedIconPath": "/public/tabbar/classifyr.png"
+      },
+      {
+        "pagePath": "pages/shopcart/shopcart",
+        "text": "购物车",
+        "iconPath": "/public/tabbar/shopcart.png",
+        "selectedIconPath": "/public/tabbar/shopcartr.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/public/tabbar/my.png",
+        "selectedIconPath": "/public/tabbar/myr.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-goods-action": "@vant/weapp/goods-action/index",
+    "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+    "van-goods-action-button": "@vant/weapp/goods-action-button/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-area": "@vant/weapp/area/index",
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index"
+  }
+}

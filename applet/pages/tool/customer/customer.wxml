@@ -1,0 +1,46 @@
+<!--pages/tool/customer/customer.wxml-->
+<view class="container">
+  <view class="head">
+    专属客服
+  </view>
+  <view class="nav">
+    <view class="exclusive_serve">
+      <view class="text">
+        <view class="text_title">专属客服</view>
+        <view class="text_desc">您有任何问题欢迎联系我们</view>
+      </view>
+      <image class="img" src="../images/customer-serve.png"></image>
+    </view>
+  </view>
+  <view class="section">
+    <view class="section_item">
+      <image src="../images/serve-qq.png" class="img"></image>
+      <view class="info">
+        <view class="info_title">客服QQ号</view>
+        <text class="info_num">202238452</text>
+        <text class="copy_text" bindtap="copyText" data-qq="202238452">复制</text>
+      </view>
+    </view>
+    <view class="section_border"></view>
+    <view class="section_item">
+      <image src="../images/serve-qq.png" class="img"></image>
+      <view class="info">
+        <view class="info_title">客服QQ号</view>
+        <text class="info_num">202238452</text>
+        <text class="copy_text" bindtap="copyText" data-qq="202238452">复制</text>
+      </view>
+    </view>
+    <view class="section_border"></view>
+    <view class="section_item">
+      <image src="../images/serve-phone.png" class="img"></image>
+      <view class="info">
+        <view class="info_title">客服电话</view>
+        <text class="info_num">202238452</text>
+        <text class="copy_text" bindtap="callPhone" data-phone="202238452">拨打</text>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    您在使用的过程中遇到任何问题，都可通过以上方式与我们联系！
+  </view>
+</view>

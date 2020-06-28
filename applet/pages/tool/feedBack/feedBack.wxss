@@ -1,0 +1,175 @@
+/* pages/tool/feedBack/feedBack.wxss */
+@import '../../../template/showListLinkModal/showListLinkModal.wxss';
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.container .head {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(270deg,#fe3c35 0,#ff1f4c 100%);
+}
+.container .head .head_title {
+  font-family: Simhei;
+  font-size: 34rpx;
+  color: #fff;
+}
+.container .head .head_option {
+  position: absolute;
+  right: 30rpx;
+  font-size: 50rpx;
+  color: #fff;
+}
+
+.container .feed_main {
+  padding: 10rpx 26rpx 0;
+  background: #fff;
+  position: relative;
+}
+.container .feed_main .feed_type {
+  display: block;
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: #EEE 1px solid;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.container .feed_main .feed_type .type {
+  color: #666;
+  font-size: 30rpx;
+  font-weight: 400;
+  margin: 10rpx 0 10rpx;
+}
+.container .feed_main .feed_type .feed_type_main {
+  overflow: hidden;
+  margin-left: -3%;
+  width: 103%;
+}
+.container .feed_main .feed_type .feed_type_main .item {
+  width: 21%;
+  float: left;
+  margin-left: 3%;
+  font-size: 28rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  position: relative;
+  margin-bottom: 2%;
+  text-align: center;
+  border: 1px solid #AAA;
+  border-radius: 3px;
+  color: #999;
+}
+.container .feed_main .feed_type .feed_type_main .item.active {
+  border: 1px solid #FE4A65;
+  color:#FE4A65;
+}
+
+
+.container .feed_main .feed_centent {
+  display: block;
+  width: 100%;
+  border-bottom: #EEE 1px solid;
+  margin-bottom: 40rpx;
+  position: relative;
+  padding-bottom: 20rpx;
+}
+.container .feed_main .feed_centent .title {
+  color: #666;
+  font-size: 30rpx;
+  font-weight: 400;
+  margin: 20rpx 0 10rpx;
+}
+.container .feed_main .feed_centent .feed_centent_main {
+  width: 100%;
+  height: 400rpx;
+  overflow: hidden;
+  background: #FCFAFC;
+  border: 1px solid #ddd;
+  border-radius: 4rpx;
+  position: relative;
+}
+.container .feed_main .feed_centent .feed_centent_main .textarea {
+  width: 100%;
+  height: 400rpx;
+  background: 0 0;
+  position: relative;
+  padding: 8px 4px 0 8px;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  outline: 0;
+  border: none;
+  line-height: 32rpx;
+  color: #666;
+  font-family: "Microsoft YaHei";
+}
+.container .feed_main .feed_centent .max_text {
+  float: right;
+  color: #999;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+.container .feed_main .feed_centent .max_text .num {
+  font-weight: 400;
+  color: #FE4A65;
+  margin-left: 6rpx;
+}
+
+
+.container .feed_main .feed_contact {
+  display: block;
+  width: 100%;
+  padding-bottom: 20rpx;
+  border-bottom: #EEE 1px solid;
+  margin-bottom: 40rpx;
+  position: relative;
+}
+.container .feed_main .feed_contact .input_box {
+  width: 100%;
+  height: 80rpx;
+  line-height: 40px;
+  border-radius: 2px;
+  font-size: 26rpx;
+  margin-bottom: 18px;
+  padding: 0 8px;
+  box-sizing: border-box;
+  background: #FCFAFC;
+  border: 1px solid #ddd;
+  color: #666;
+}
+.container .feed_main .feed_contact .text {
+  color: #999;
+  font-size: 26rpx;
+  margin: 0;
+  padding: 0;
+}
+
+.container .feed_main .button {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  margin-top: 100rpx;
+  margin-bottom: 30rpx;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  color: #FFF;
+  letter-spacing: 10px;
+  border-radius: 10rpx;
+  background-color: #CCC;
+}
+.container .feed_main .button.active {
+  background: red;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}

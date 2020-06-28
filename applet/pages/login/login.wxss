@@ -1,0 +1,103 @@
+/* pages/login/login.wxss */
+.container {
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+}
+.container .login {
+  width: 90%;
+  margin: 0 auto;
+}
+.container .login .user_head {
+  position: relative;
+  width: 100%;
+  height: 400rpx;
+}
+.container .login .user_head .img {
+  position: absolute;
+  left: 35%;
+  bottom: 40rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.container .login .option {
+  width: 100%;
+  margin-top: 100rpx;
+}
+.container .login .option .user {
+  position: relative;
+  width: 100%;
+  height: 60rpx;
+  margin-bottom: 40rpx;
+}
+.container .login .option .user .user_name {
+  padding-left: 10rpx;
+  padding-right: 100rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid red;
+  font-size: 30rpx;
+}
+.container .login .option .user .delete {
+  position: absolute;
+  top: 20%;
+  right: 2%;
+  color: #999;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.container .login .option .user .delete.active {
+  opacity: 1;
+}
+
+.container .login .option .pass {
+  position: relative;
+  width: 100%;
+  height: 60rpx;
+  margin-bottom: 40rpx;
+}
+.container .login .option .pass .pass_name {
+  padding-left: 10rpx;
+  padding-right: 100rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid red;
+  font-size: 30rpx;
+}
+.container .login .option .pass .delete {
+  position: absolute;
+  top: 20%;
+  right: 2%;
+  color: #999;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.container .login .option .pass .delete.active {
+  opacity: 1;
+}
+
+.container .login .option .desc {
+  width: 100%;
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.container .login .option .desc .wx_login {
+  float: left;
+}
+.container .login .option .desc .reg {
+  float: right;
+}
+
+.container .login .option .submit {
+  width: 100%;
+  margin-top: 100rpx;
+  height: 80rpx;
+  color: #fff;
+  font-size: 34rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: linear-gradient(270deg,#fa4dbe 0,#fbaa58);
+}

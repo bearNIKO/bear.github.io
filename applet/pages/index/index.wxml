@@ -1,0 +1,120 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="head">
+    <view class="head_search">
+      <view class="search_box" bindtap="toSearch">
+        <text class="icon iconfont icon-weimingmingwenjianjia_sousuo"></text>输入商品名或粘贴宝贝标题搜索
+      </view>
+      <image class="img" src="./images/sigin.gif" bindtap="onNull"></image>
+      <view class="message" catchtap="onNull">
+        <view class="icon iconfont icon-messages"></view>
+        消息
+      </view>
+    </view>
+    <view class="head_nav">
+      <view class="ant">
+        <text data-type="0" bindtap="navWrapperActive" class="{{type==0?'active':''}}">精选</text>
+      </view>
+      <view class="nav_wrapper">
+        <scroll-view scroll-x="true" class="nav_wrapper_box">
+          <view class="nav_wrapper_item {{type==item.type?'active':''}}" data-type="{{item.type}}" bindtap="navWrapperActive" wx:for="{{navTitle}}" wx:key="index">{{item.text}}</view>
+        </scroll-view>
+      </view> 
+      <view class="icon iconfont icon-fenlei2"> </view>
+    </view>
+  </view>
+   <view class="table_find_fixed {{findGoodsFixed?'active':''}}">
+      <view class="table_find_item" data-type="1" bindtap="activeGoods">
+        <view class="title {{activeGoodsType==1?'active':''}}">发现</view>
+      </view>
+      <view class="table_find_shu"></view>
+      <view class="table_find_item" data-type="2" bindtap="activeGoods">
+        <view class="title {{activeGoodsType==2?'active':''}}">精选</view>
+      </view>
+    </view>
+  <scroll-view scroll-y="true" bindscroll="onScrollView" scroll-top='{{topNum}}' class="banner">
+    <view class="swiper">
+      <view class="muban" wx:if="{{!swiper.length}}"></view>
+      <swiper autoplay="{{true}}" wx:if="{{swiper.length}}" circular="true" indicator-dots="{{true}}" indicator-active-color="red">
+        <swiper-item class="swiper_item" wx:for="{{swiper}}" wx:key="index">
+          <image src="{{imgServer+item.images}}" data-goodsid="{{item.goodsID}}" catchtap="toGoodsInfo" class="img"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="main_module_layout">
+      <view class="max_activity">
+        <image class="img" src="{{imgServer+'/static/index/hd/01.gif'}}" catchtap="onNull"></image>
+      </view>
+      <view class="activity_min_group">
+        <view class="activity_min">
+          <image class="img" src="{{imgServer+'/static/index/hd/02.jpg'}}" catchtap="onNull"></image>
+        </view>
+        <view style="width: 10rpx;height:140rpx"></view>
+        <view class="activity_min">
+           <image class="img" src="{{imgServer+'/static/index/hd/03.jpg'}}" catchtap="onNull"></image>
+        </view>
+      </view>
+    </view>
+    <view class="main_module_img">
+      <view class="nav">
+        <view class="items" wx:if="{{navigation.length}}">
+          <view class="item" catchtap="onNull" wx:for="{{navigation}}" wx:key="index">
+            <image class="img" src="{{imgServer+item.images}}"></image>
+            <view class="text">{{item.title}}</view>
+          </view>
+        </view>
+        <view class="muban" wx:if="{{!navigation.length}}">
+          <view class="item" wx:for="{{8}}" wx:key="index">
+            <view class="img" src="./images/rank.gif"></view>
+            <view class="text"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="hr"></view>
+    <view class="table_find" id="findGoods">
+      <view class="table_find_item" data-type="1" bindtap="activeGoods">
+        <view class="title">发现</view>
+        <view class="text {{activeGoodsType==1?'active':''}}">推荐好货</view>
+      </view>
+      <view class="table_find_shu"></view>
+      <view class="table_find_item" data-type="2" bindtap="activeGoods">
+        <view class="title">精选</view>
+        <view class="text {{activeGoodsType==2?'active':''}}">猜你喜欢</view>
+      </view>
+    </view>
+    <view class="goodsList">
+      <view class="goodsItems" wx:for="{{goodsRecommendList}}" wx:key="index" data-goodsid="{{item.goodsID}}" bindtap="toGoodsInfo">
+        <view class="cent">
+          <image class="img" src="{{item.imgUrl?imgServer+item.imgUrl:imgServer+item.swiper[0]}}"></image>
+          <view class="mar">
+            <view class="title">
+              <image class="icon" src="./images/lable-icon-02.png"></image>{{item.title}}
+            </view>
+            <view class="product_info">
+              <view class="price">
+                <image class="ju" src="./images/juhuasuan.png" wx:if="{{item.ju}}"></image>
+                <text>卷后</text>
+                <text class="RMB">¥</text>
+                <text class="price_num">{{item.price}}</text>
+                <text wx:if="{{item.limit}}" class="red_bubble">限时价</text>
+              </view>
+              <view class="label_box">
+                <text wx:if='{{item.label}}' class="icon">{{item.label}}</text>
+                <view class="juan">
+                  <text class="text">券</text>
+                  {{item.juan}}元
+                </view>
+              </view>
+              <view class="salse">
+                已售{{item.oldsell}}万<text class="shu"></text>评论{{item.comment}}万
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="back_top iconfont .icon-shang1 {{back_top_show?'back_top_show':''}}" bindtap="back_top"></view>
+  <van-toast id="van-toast"/>
+</view>

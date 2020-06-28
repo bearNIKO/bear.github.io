@@ -1,0 +1,128 @@
+<!--pages/goodsInfo/goodsInfo.wxml-->
+<import src="/template/showListLinkModal/showListLinkModal.wxml"/>
+<view class="container">
+  <view class="head">
+    <view class="head_title">
+      <view class="item">
+        <text class="{{type==1?'active':''}}" data-type='1' bindtap="jumpProduct">商品</text>
+      </view>
+      <view class="item">
+        <text class="{{type==2?'active':''}}" data-type='2' bindtap="jumpProduct">详情</text>
+      </view>
+    </view>
+    <text class="head_option iconfont icon-xuanxiang" bindtap="showListsLink"></text>
+  </view>
+  <view class="head_box"></view>
+  <view class="swipers" wx:if="{{goods}}">
+    <swiper bindchange='swiperTab' circular="true" class="items">
+      <swiper-item class="item" wx:for="{{goods.swiper}}" wx:key="index">
+        <image class="img" src="{{imgServer+item}}"></image>
+      </swiper-item>
+    </swiper>
+    <view class="index" ws:if="{{swiperItems!=0}}">
+        {{swiperItem+1}}\n/\n{{swiperItems}}
+    </view>
+  </view>
+  <view class="goods_info" wx:if="{{goods}}">
+    <view class="title_top_info">
+      <view class="goods_price">
+        券后价 <text class="after_volume_price"><text>￥</text>{{goods.price}}</text>
+        <view class="original_price">
+          原价<text>¥{{goods.oldprice}}</text>
+        </view>
+      </view>
+      <view class="share">
+        预估积分: +30
+      </view>
+    </view>
+    <view class="title">
+      <image class="img" src="./images/lable-icon-02.png"></image><text class="tm">{{goods.title}}</text>
+    </view>
+    <view class="service_sell_amount">
+      <view class="normal_span">
+        <image class="img" src="./images/okok.png"></image>
+        <text class="by">包邮</text>
+        <image class="img" src="./images/okok.png"></image>
+        <text class="yfx">运费险</text>
+      </view>
+      <view class="text_right">
+        已售<text class="col_red">{{goods.oldsell}}万</text>件
+      </view>
+    </view>
+    <view class="coupon">
+      <image src="./images/icon-bg-001.png" class="img"></image>
+      <view class="left">
+        <view class="title"><text>{{goods.juan}}</text>元优惠券</view>
+        <view class="time">2020.06.08-2020.06.14</view>
+      </view>
+      <view class="right" bindtap="nullMsg">立即领券</view>
+    </view>
+    <view class="goods_desc">
+      【第二三份0元】摩咔金鸡蛋酸奶布丁125g*6杯礼盒轻轻一口，香甜弥漫唇口，香软Q弹的果冻弹来弹去，伴随着童年的回忆，随时随地来一个~            
+    </view>
+    <view class="hr"></view>
+    <view class="comment">
+      <view class="left">评论({{goods.comment}}w+)</view>
+      <view class="right" bindtap="nullMsg"> 查看全部<text class="iconfont icon-you"></text></view>
+    </view>
+    <view class="hr"></view>
+    <view class="goods_reco" id="goodsNav">
+      <view class="title">
+        <view class="goods_reco_span1"></view>
+        商品信息
+        <view class="goods_reco_span2"></view>
+      </view>
+      <view class="imglist">
+        <image wx:for="{{goods.desc}}" wx:key="index" class="img" src="{{imgServer+item}}" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+  <view class="bottom_box"></view>
+  <view class="back_top iconfont .icon-shang1 {{back_top_show?'back_top_show':''}}" bindtap="back_top"></view>
+  <van-toast id="van-toast"/>
+</view>
+<!-- 套餐卡 -->
+<van-popup
+  show="{{ show }}"
+  closeable
+  position="bottom"
+  custom-style="height: 80%"
+  bind:close="onClose"
+>
+  <view class="shop_cart">
+    <view class="shop_cart_title">
+      <image class="img" src="{{imgServer+goods.swiper[0]}}"></image>
+      <view class="goods_info">
+        <view class="goods_info_price">￥<text>{{goods.price}}</text></view>
+        <view class="goods_info_kc">库存\n{{maxGoodsNum}}件</view>
+        <view class="goods_info_type" wx:if="{{goodsType==0}}">请选择\r\n{{goodsTypeName}}</view>
+        <view class="goods_info_type" wx:if="{{goodsType!=0}}">已选择\r\n{{goodsTypeItem[goodsType-1].name}}</view>
+      </view>
+    </view>
+    <view class="shop_cart_type">
+      <view class="shop_cart_type_title">{{goodsTypeName}}</view>
+      <view class="shop_cart_type_items">
+        <view class="item {{goodsType==item.id?'active':''}}" bindtap="avtiveGoodsType" wx:key='index' data-goods-Type="{{item.id}}" wx:for="{{goodsTypeItem}}">{{item.name}}</view>
+      </view>
+    </view>
+    <view class="shop_cart_num">
+      <view class="shop_cart_num_name">购买数量</view>
+      <view class="shop_cart_num_btn">
+        <view class="addnum" bindtap="removeGoodsNum">-</view>
+        <view class="num">{{goodsNum}}</view>
+        <view class="removenum" bindtap="addGoodsNum">+</view>
+      </view>
+    </view>
+    <view class="shop_cart_btn" wx:if="{!{goodsCartPay}}" bindtap="addShopCart">确定</view>
+    <view class="shop_cart_btn" wx:if="{{goodsCartPay}}" bindtap="addShopOrder">提交订单</view>
+  </view>
+</van-popup>
+ <!-- 购物车 -->
+<van-goods-action>
+  <van-goods-action-icon icon="chat-o" text="客服" bind:click="toCustomer" />
+  <van-goods-action-icon icon="like" icon-class="{{userLove?'red':''}}" text="{{userLove?'已收藏':'收藏'}}" bind:click="addUserLove"/>
+  <van-goods-action-icon icon="cart-o" text="购物车" bind:click="toShopCart"/>
+  <van-goods-action-button text="加入购物车" type="warning" bind:click="showPopupShopCart"/>
+  <van-goods-action-button text="立即购买" bind:click="showPopupShopOrder"/>
+</van-goods-action>
+<template is="showListLinkModal" data="{{showListsLinks, toIndex, toSearch, toCustomer, toFeedBack, toMy}}" ></template>

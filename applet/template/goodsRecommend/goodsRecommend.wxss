@@ -1,0 +1,225 @@
+/* template/goodsRecommend/goodsRecommend.wxss */
+.goodsList {
+  width: 100%;
+  background: #EEE;
+}
+.goodsList .goodsItems {
+  width: 50%;
+  display: inline-block;
+}
+.goodsList .goodsItems .cent {
+  background: #fff;
+  overflow: hidden;
+  margin: 0 5rpx 10rpx 10rpx;
+  border-radius: 10rpx;
+}
+.goodsList .goodsItems .cent .img {
+  width: 360rpx;
+  height: 360rpx;
+}
+.goodsList .goodsItems .cent .mar {
+  position: relative;
+  z-index: 1;
+  zoom: 1;
+  padding: 30rpx 18rpx 18rpx 14rpx;
+  box-sizing: border-box;
+  height: 222rpx;
+  margin: 0!important;
+  display: flex;
+  flex-direction: column;
+}
+.goodsList .goodsItems .cent .mar .title {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #333;
+  height: 32rpx;
+  padding-right: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.goodsList .goodsItems .cent .mar .title .icon {
+  display: inline-block;
+  width: 48rpx;
+  height: 26rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.goodsList .goodsItems .cent .mar .product_info {
+  color: #333;
+  position: absolute; 
+  bottom: 20rpx;
+}
+.goodsList .goodsItems .cent .mar .product_info .price {
+  font-size: 24rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: -2rpx;
+}
+.goodsList .goodsItems .cent .mar .product_info .price .ju {
+  height: 24rpx;
+  width: 24rpx;
+  margin-top: -5rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.goodsList .goodsItems .cent .mar .product_info .price .red_bubble {
+  position: relative;
+    z-index: 1;
+    zoom: 1;
+    font-size: 22rpx;
+    font-weight: 400;
+    color: #fff;
+    background: linear-gradient(150deg,#fe3a33,#fb8d2c);
+    line-height: 24rpx;
+    margin-left: 10rpx;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    height: 24rpx;
+    top: -2px;
+    display: inline-block;
+}
+.goodsList .goodsItems .cent .mar .product_info .price .RMB {
+  display: inline-block;
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #FF2B22;
+  margin-left: 4rpx;
+}
+.goodsList .goodsItems .cent .mar .product_info .price .price_num {
+  font-size: 35rpx;
+  font-weight: 500;
+  color: #FF2B22;
+}
+.goodsList .goodsItems .cent .mar .product_info .label_box {
+  margin-right: 4rpx;
+  font-size: 28rpx;
+}
+.goodsList .goodsItems .cent .mar .product_info .label_box .juan {
+  height: 28rpx;
+  background: linear-gradient(90deg,#ff8873 0,#ff4f4f 100%);
+  border-radius: 4rpx;
+  padding: 0 10rpx 0 2rpx;
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #fff;
+  line-height: 28rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.goodsList .goodsItems .cent .mar .product_info .label_box .icon {
+    height: 28rpx;
+    border-radius: 4rpx;
+    border: 2rpx solid;
+    font-size: 22rpx;
+    font-weight: 400;
+    color: #ff0137;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    margin-right: 10rpx;
+    display: inline-block;
+    line-height: 28rpx;
+    vertical-align: middle;
+    border-color: rgba(245,114,36,.7);
+    color: #f57223;
+}
+.goodsList .goodsItems .cent .mar .product_info .label_box .juan .text {
+    background: #fff;
+    border-radius: 2rpx 0 0 2rpx;
+    font-size: 20rpx;
+    margin-top: 1rpx;
+    color: #FE3A33;
+    width: 24rpx;
+    height: 24rpx;
+    display: inline-block;
+    line-height: 26rpx;
+    text-align: center;
+}
+.goodsList .goodsItems .cent .mar .product_info .salse {
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #888;
+}
+.goodsList .goodsItems .cent .mar .product_info .salse .shu{
+  content: '';
+  width: 2rpx;
+  background: #888;
+  margin: 0 10rpx;
+  display: inline-block;
+  height: 16rpx;
+  position: relative;
+  z-index: 1;
+  zoom: 1;
+  top: 2rpx;
+}
+.print_list_recommend {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  background: #EEE;
+}
+.print_list_recommend .text {
+  position: relative;
+  text-align: center;
+  height: 40rpx;
+  color: #FC3F78;
+  font-size: 30rpx;
+}
+.print_list_recommend .text .icon{
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #fff;
+  margin-right: 10rpx;
+  background: #FC3F78;
+  text-align: center;
+  font-size: 26rpx;
+  border-radius: 50%;
+}
+.print_list_recommend .text .henl {
+  position: relative;
+  display: inline-block;
+  width: 150rpx;
+  vertical-align: middle;
+  height: 2rpx;
+  text-align: right;
+  border-top: solid 2rpx #FC3F78;
+  margin-right: 15rpx;
+}
+.print_list_recommend .text .henr {
+  position: relative;
+  display: inline-block;
+  width: 150rpx;
+  vertical-align: middle;
+  margin-left: 15rpx;
+  height: 2rpx;
+  text-align: right;
+  border-top: solid 2rpx #FC3F78;
+}
+.print_list_recommend .text .henl .qiu {
+  position: absolute;
+  top: -4rpx;
+  right: 0;
+  display: inline-block;
+  width: 6rpx;
+  height: 6rpx;
+  content: "";
+  border-radius: 50%;
+  overflow: hidden;
+  background: #FC3F78;
+}
+.print_list_recommend .text .henr .qiu {
+  position: absolute;
+  top: -4rpx;
+  left: 0;
+  display: inline-block;
+  width: 6rpx;
+  height: 6rpx;
+  content: "";
+  border-radius: 50%;
+  overflow: hidden;
+  background: #FC3F78;
+}

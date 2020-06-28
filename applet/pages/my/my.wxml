@@ -1,0 +1,62 @@
+<!--pages/my/my.wxml-->
+<view class="container my">
+  <image class="head_bg" src="./images/user_bg.png"></image>
+  <view class="head">
+    <view class="user">
+      <view class="user_info">
+        <image class="user_img" wx:if="{{!usersImg}}" src="./images/user.png"></image>
+        <image class="user_img" wx:if="{{usersImg}}" src="{{imgServer+'/'+usersImg}}"></image>
+        <view class="user_login" wx:if="{{!usersName}}">
+          <text catchtap="toLogin">登入</text>
+          <text> / </text>
+          <text catchtap="toReg">注册</text>
+        </view>
+        <text class="user_name" wx:if="{{usersName}}">{{usersName}}</text>
+      </view>
+      <image class="user_set" src="./images/user_icon_set.svg" catchtap="toSetUser"></image>
+    </view>
+    <view class="nav">
+      <view class="item" catchtap="toOrderList">
+        <image src="./images/list.png" class="item_img"></image>
+        <text class="item_text">
+          我的订单
+        </text>
+      </view>
+      <view class="item" catchtap="toCollection">
+        <image src="./images/love2.png" class="item_img"></image>
+        <text class="item_text">
+          我的收藏
+        </text>
+      </view>
+      <view class="item" catchtap="toFootPrint">
+        <image src="./images/foot.png" class="item_img"></image>
+        <text class="item_text">
+          我的足迹
+        </text>
+      </view>
+    </view>
+    <view class="card">
+      <view class="title">
+        常用工具
+      </view>
+      <view class="cards">
+        <view class="cards_item" catchtap="toOrderInfo">
+          <image class="cards_img" src="./images/tools6.png"></image>
+          <view class="cards_text">订单查询</view>
+        </view>
+        <view class="cards_item" catchtap="toCouponHelp">
+          <image class="cards_img" src="./images/tools1.png"></image>
+          <view class="cards_text">新手帮助</view>
+        </view>
+        <view class="cards_item" catchtap="toCustomer">
+          <image class="cards_img" src="./images/tools2.png"></image>
+          <view class="cards_text">专属客服</view>
+        </view>
+        <view class="cards_item" catchtap="topFeedBack">
+          <image class="cards_img" src="./images/tools4.png"></image>
+          <view class="cards_text">意见反馈</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

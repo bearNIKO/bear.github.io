@@ -1,0 +1,26 @@
+<!--pages/tool/orderInfo/orderInfoItem/orderInfoItem.wxml-->
+<view class="container">
+  <view class="head">查询结果</view>
+  <van-toast id="van-toast"/>
+  <view class="nav">
+    <view class="order_null">
+      <view class="logo">
+        <image class="img" src="../../images/download.png"></image>
+      </view>
+      <view class="msg">
+        未查到该订单
+      </view>
+      <view class="info">
+        <view class="title">未查询到订单的可能原因：</view>
+        <view class="step">
+            1. 订单有延迟，建议下单后15分钟再查询<view></view>
+            2. 非您购买的订单<view></view>
+            3. 不是通过小咪购下的订单<view></view>
+            4. 创建订单超过40分钟付费，次日才能同步<view></view>
+            5. 超出7天的订单无法找回
+        </view>
+      </view>
+      <view class="btn" catchtap="backOrderInfo">重新查询</view>
+    </view>
+  </view>
+</view>

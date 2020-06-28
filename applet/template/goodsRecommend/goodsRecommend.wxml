@@ -1,0 +1,39 @@
+<!--template/goodsRecommend/goodsRecommend.wxml-->
+<template name="goodsRecommend">
+  <view class="goodsList">
+    <view class="print_list_recommend" wx:if="{{titleShow}}">
+      <view class="text">
+        <text class="henl"><text class="qiu"></text></text><text class="icon iconfont icon-shoucang"></text>为你精选<text class="henr"><text class="qiu"></text></text>
+      </view>
+    </view>
+    <view class="goodsItems" wx:for="{{goodsRecommendList}}" wx:key="index" data-goodsid="{{item.goodsID}}" bindtap="toGoodsInfo">
+        <view class="cent">
+          <image class="img" src="{{imgServer+item.imgUrl}}"></image>
+          <view class="mar">
+            <view class="title">
+              <image class="icon" src="./images/lable-icon-02.png"></image>{{item.title}}
+            </view>
+            <view class="product_info">
+              <view class="price">
+                <image class="ju" src="./images/juhuasuan.png" wx:if="{{item.ju}}"></image>
+                <text>卷后</text>
+                <text class="RMB">¥</text>
+                <text class="price_num">{{item.price}}</text>
+                <text wx:if="{{item.limit}}" class="red_bubble">限时价</text>
+              </view>
+              <view class="label_box">
+                <text wx:if='{{item.label}}' class="icon">{{item.label}}</text>
+                <view class="juan">
+                  <text class="text">券</text>
+                  {{item.juan}}元
+                </view>
+              </view>
+              <view class="salse">
+                已售{{item.oldsell}}万<text class="shu"></text>评论{{item.comment}}万
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+  </view>
+</template>

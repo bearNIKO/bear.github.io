@@ -1,0 +1,137 @@
+<!--pages/shopcart/shopcart.wxml-->
+<wxs module="filter" src="./numberToFixed.wxs"></wxs>
+<view class="container">
+  <view class="page_header">
+    <view class="head">
+      <view class="title">购物车<text wx:if="{{userCart.length}}">({{userCart.length}})</text></view>
+      <view class="opts">
+        <text class="opt" data-type="1" bindtap="activeEdit" wx:if="{{goodsEdit}}">管理</text>
+        <text class="opt" data-type="2" bindtap="activeEdit" wx:if="{{!goodsEdit}}">完成</text>
+      </view>
+    </view>
+    <view class="head_bar" wx:if="{{userCart.length}}">
+      <text class="info">共{{userCart.length}}件宝贝</text>
+    </view>
+  </view>
+  <scroll-view scroll-y="true" bindscroll="onScrollView" scroll-top='{{topNum}}' class="goods_list {{!userCart.length?'active':''}}">
+    <view class="cart_null" wx:if="{{!userCart.length}}">
+      <image class="img" src="./images/download.webp"></image>
+      <view class="title">购物车竟然是空的</view>
+      <view class="text">再忙，也要记得买点什么犒赏自己~</view>
+      <view class="btn">
+        <text class="text" bindtap="toOdds">去逛逛</text>
+      </view>
+    </view>
+    <view class="cart_list" wx:if="{{userCart}}">
+      <view class="cart_list_item" wx:for="{{userCart}}" wx:key='index'>
+        <view class="goods">
+          <van-swipe-cell right-width="{{ 65 }}" >
+            <van-cell-group>
+              <view class="goods_info">
+                <view class="goods_info_left">
+                  <view class="goods_info_left_check">
+                    <view class="box">
+                      <van-checkbox
+                      data-index="{{index}}"
+                      value="{{ item.selected?item.selected:false}}"
+                      checked-color="#FF6A00"
+                      bind:change="goodsSelectItem"
+                      icon-size="40rpx">
+                      </van-checkbox>
+                    </view>
+                  </view>
+                  <image bindtap="toGoodsInfo" data-goodsid="{{item.goodsID}}" class="img" src="{{imgServer+item.swiper[0]}}"></image>
+                </view>
+                <view class="goods_info_right">
+                  <view class="title" bindtap="toGoodsInfo" data-goodsid="{{item.goodsID}}">
+                    {{item.title}}
+                  </view>
+                  <view class="goods_info_right_type">
+                      {{goodsTypeItem[item.goodsType-1].name}}
+                  </view>
+                  <view class="price_box">
+                    <view class="price">
+                      ￥{{item.price}}
+                    </view>
+                    <view class="shop_cart_num_btn">
+                      <view data-index="{{index}}" class="addnum" bindtap="removeGoodsNum">-</view>
+                      <view class="num">{{item.allConut}}</view>
+                      <view data-index="{{index}}" class="removenum" bindtap="addGoodsNum">+</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </van-cell-group>
+            <view slot="right" data-index="{{index}}" bindtap="deleteCartItem" class="cartDeleteRight">
+                删除
+            </view>
+          </van-swipe-cell>
+        </view>
+      </view>
+    </view>
+    <view class="recommend" wx:if="{{goodsRecommendList.length}}">
+      <view class="recommend_title">
+        <view class="text">
+          <text class="henl"><text class="qiu"></text></text><text class="icon iconfont icon-shoucang"></text>为你精选<text class="henr"><text class="qiu"></text></text>
+        </view>
+      </view>
+      <view class="goodsList">
+        <view class="goodsItems" wx:for="{{goodsRecommendList}}" wx:key="index" data-goodsid="{{item.goodsID}}" bindtap="toGoodsInfo">
+          <view class="cent">
+            <image class="img" src="{{item.imgUrl?imgServer+item.imgUrl:imgServer+item.swiper[0]}}"></image>
+            <view class="mar">
+              <view class="title">
+                <image class="icon" src="./images/lable-icon-02.png"></image>{{item.title}}
+              </view>
+              <view class="product_info">
+                <view class="price">
+                  <image class="ju" src="./images/juhuasuan.png" wx:if="{{item.ju}}"></image>
+                  <text>卷后</text>
+                  <text class="RMB">¥</text>
+                  <text class="price_num">{{item.price}}</text>
+                  <text wx:if="{{item.limit}}" class="red_bubble">限时价</text>
+                </view>
+                <view class="label_box">
+                  <text wx:if='{{item.label}}' class="icon">{{item.label}}</text>
+                  <view class="juan">
+                    <text class="text">券</text>
+                    {{item.juan}}元
+                  </view>
+                </view>
+                <view class="salse">
+                  已售{{item.oldsell}}万<text class="shu"></text>评论{{item.comment}}万
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="settlement_bar">
+    <view class="checkbox_wrapper">
+      <van-checkbox value="{{ goods_select_all }}"
+      checked-color="#FF6A00"
+      bind:change="goodsSelectAll"
+      icon-size="40rpx">
+        全选
+      </van-checkbox>
+    </view>
+    <view class="submit_wrapper" wx:if="{{goodsEdit}}">
+      <view class="price_wrapper">
+        合计:<text class="price">￥{{filter.numberToFixed(activeGoodsMoney)}}</text>
+      </view>
+      <view class="submit" bindtap="addShopOrder">
+        结算({{activeGoodsAge}})
+      </view>
+    </view>
+    <view class="delete_wrapper" bindtap="deleteActiveItem" wx:if="{{!goodsEdit}}">
+      <view class="delete">
+        删除
+      </view>
+    </view>
+  </view>
+  <view class="back_top iconfont .icon-shang1 {{back_top_show?'back_top_show':''}}" bindtap="back_top"></view>
+  <van-toast id="van-toast"/>
+</view>
+<van-dialog id="van-dialog" />

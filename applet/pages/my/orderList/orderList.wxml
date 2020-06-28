@@ -1,0 +1,101 @@
+<!--pages/my/orderList/orderList.wxml-->
+<wxs module="filter" src="./numberToFixed.wxs"></wxs>
+<view class="container">
+  <view class="head">
+    我的订单
+    <view class="icon iconfont icon-icon-test" catchtap="toSearch"></view>
+  </view>
+  <view class="my_order">
+    <van-notice-bar
+      text="{{ messageText }}"
+      speed="{{40}}"
+      color="#fe3a33"
+      backgroundColor="#ffefea"
+      mode="closeable"
+      delay="2"
+    />
+    <view class="nav_list">
+      <view class="item" wx:for="{{navList}}" wx:key='index'>
+        <text class="text {{navType==item.type?'active':''}}" bindtap="clickNavItem"data-type="{{item.type}}">{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="goods_list_max">
+  <scroll-view scroll-y="true" bindscroll="onScrollView" scroll-top='{{topNum}}' class="goods_list">
+    <view class="list_null" wx:if="{{!orderListItem.length}}">
+      <view class="null">
+        <image class="img" src="../images/order-null.png"></image>
+        <view class="text">暂无订单</view>
+      </view>
+    </view>
+    <view class="goodsInfo" wx:if="{{orderListItem.length}}">
+      <view class="goodsInfo_box" wx:for="{{orderListItem}}" wx:key="index">
+        <view class="goodsInfo_box_title">
+          <image class="goodsInfo_box_title_img" src="./images/tianmao.png"></image>自营店
+          <view class="goodsInfo_box_title_type" >
+            {{item.orderType==-1?'待付款':''}}
+          </view>
+        </view>
+        <view class="goodsInfo_box_item" wx:for="{{item.orderList}}" wx:for-item="items" wx:key="index">
+          <view class="goodsInfo_box_good">
+            <image data-goodsid="{{items.goodsID}}" bindtap="toGoodsInfo" class="goodsInfo_box_good_img" src="{{imgServer+items.swiper[0]}}"></image>
+            <view class="goodsInfo_box_good_desce">
+              <view class="goodsInfo_box_good_desce_info">
+                <view class="title" data-goodsid="{{items.goodsID}}" bindtap="toGoodsInfo">{{items.title}}</view>
+                <view class="type">{{goodsTypeItem[items.goodsType-1].name}}</view>
+              </view>
+            </view>
+            <view class="goodsInfo_box_good_price">
+              <view class="price_money">￥{{items.price}}</view>
+              <view class="price_age">x{{items.allConut}}</view>
+            </view>
+          </view>
+          <view class="goodsInfo_box_price">
+            <view class="goodsInfo_box_price_money"><text class="age">共{{item.allConut}}件</text>小计:\r\n<text class="rmb">￥</text><text class="money">{{filter.numberToFixed(items.allConut*items.price)}}</text></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="recommend" wx:if="{{goodsRecommendList.length}}">
+      <view class="recommend_title">
+        <view class="text">
+          <text class="henl"><text class="qiu"></text></text><text class="icon iconfont icon-shoucang"></text>为你精选<text class="henr"><text class="qiu"></text></text>
+        </view>
+      </view>
+      <view class="goodsList">
+        <view class="goodsItems" wx:for="{{goodsRecommendList}}" wx:key="index" data-goodsid="{{item.goodsID}}" bindtap="toGoodsInfo">
+          <view class="cent">
+            <image class="img" src="{{item.imgUrl?imgServer+item.imgUrl:imgServer+item.swiper[0]}}"></image>
+            <view class="mar">
+              <view class="title">
+                <image class="icon" src="./images/lable-icon-02.png"></image>{{item.title}}
+              </view>
+              <view class="product_info">
+                <view class="price">
+                  <image class="ju" src="./images/juhuasuan.png" wx:if="{{item.ju}}"></image>
+                  <text>卷后</text>
+                  <text class="RMB">¥</text>
+                  <text class="price_num">{{item.price}}</text>
+                  <text wx:if="{{item.limit}}" class="red_bubble">限时价</text>
+                </view>
+                <view class="label_box">
+                  <text wx:if='{{item.label}}' class="icon">{{item.label}}</text>
+                  <view class="juan">
+                    <text class="text">券</text>
+                    {{item.juan}}元
+                  </view>
+                </view>
+                <view class="salse">
+                  已售{{item.oldsell}}万<text class="shu"></text>评论{{item.comment}}万
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  </view>
+  <view class="back_top iconfont .icon-shang1 {{back_top_show?'back_top_show':''}}" bindtap="back_top"></view>
+</view>
+<van-toast id="van-toast" />

@@ -1,0 +1,27 @@
+<template name="showListLinkModal">
+  <view class="showListLinkModal">
+    <view class="arrow {{showListsLinks?'active':''}}"></view>
+    <view class="mask {{showListsLinks?'active':''}}">
+      <view class="mask_item" catchtap="toIndex">
+        <text class="icon iconfont icon-shouye"></text>
+        首页
+      </view>
+      <view class="mask_item" catchtap="toSearch">
+        <text class="icon iconfont icon-weimingmingwenjianjia_sousuo"></text>
+        搜索
+      </view>
+      <view class="mask_item" catchtap="toCustomer">
+        <text class="icon iconfont icon-xiaoxi"></text>
+        客服
+      </view>
+      <view class="mask_item" catchtap="toFeedBack">
+        <text class="icon iconfont icon-fankui"></text>
+        反馈
+      </view>
+      <view class="mask_item" catchtap="toMy">
+        <text class="icon iconfont icon-wode"></text>
+        我的
+      </view>
+    </view>
+  </view>
+</template>

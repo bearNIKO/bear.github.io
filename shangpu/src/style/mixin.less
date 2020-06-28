@@ -1,0 +1,99 @@
+
+.fs(@px) {
+  font-size: unit(@px / @remSize, rem);
+}
+ 
+/*----- 宽度 -----*/
+.w(@px) {
+  width: unit(@px / @remSize, rem);
+}
+ 
+/*----- 高度 -----*/
+.h(@px) {
+  height: unit(@px / @remSize, rem);
+}
+ 
+/*----- 行高 -----*/
+.lh(@px) {
+  line-height: unit(@px / @remSize, rem);
+}
+ 
+/*----- 背景尺寸 -----*/
+.b_s(@px, @px) {
+  -webkit-background-size: unit(@px / @remSize, rem) unit(@px / @remSize, rem);
+  background-size: unit(@px / @remSize, rem) unit(@px / @remSize, rem);
+}
+/**
+* [背景尺寸，设置宽度，高度auto]
+ */
+.b_s1(@px) {
+  -webkit-background-size: unit(@px / @remSize, rem) auto;
+  background-size: unit(@px / @remSize, rem) auto;
+}
+ 
+.b_s2(@px) {
+  -webkit-background-size: auto unit(@px / @remSize, rem);
+  background-size: auto unit(@px / @remSize, rem);
+}
+ 
+/*----- margin -----*/
+.mg(@px) {
+  margin: unit(@px / @remSize, rem);
+}
+.mt(@px) {
+  margin-top: unit(@px / @remSize, rem);
+}
+.mr(@px) {
+  margin-right: unit(@px / @remSize, rem);
+}
+.mb(@px) {
+  margin-bottom: unit(@px / @remSize, rem);
+}
+.ml(@px) {
+  margin-left: unit(@px / @remSize, rem);
+}
+
+/*----- padding -----*/
+.pd(@px) {
+  padding: unit(@px / @remSize, rem);
+}
+.pt(@px) {
+  padding-top: unit(@px / @remSize, rem);
+}
+.pm(@px) {
+  padding-bottom: unit(@px / @remSize, rem);
+}
+.pr(@px) {
+  padding-right: unit(@px / @remSize, rem);
+}
+.pl(@px) {
+  padding-left: unit(@px / @remSize, rem);
+}
+
+
+/*----- border -----*/
+.border(@px) {
+  border-radius: unit(@px / @remSize, rem);
+}
+
+
+/*----- top lef -----*/
+.top(@px) {
+  top: unit(@px / @remSize, rem);
+}
+.bottom(@px) {
+  bottom: unit(@px / @remSize, rem);
+}
+.left(@px) {
+  left: unit(@px / @remSize, rem);
+}
+.right(@px) {
+  right: unit(@px / @remSize, rem);
+}
+
+
+.arrow(@px) {
+  border-left: unit(@px / @remSize, rem) transparent solid;
+  border-right: unit(@px / @remSize, rem) transparent solid;
+  border-bottom: unit(@px / @remSize, rem) rgba(51,51,51,.9) solid;
+}

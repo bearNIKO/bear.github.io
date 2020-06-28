@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="head">
+    <text class="head_title">新手帮助</text>
+  </view>
+  <view class="banner">
+    <image class="img" src="{{imgServer+item.img}}" wx:for="{{imgList}}" wx:key="index"></image>
+  </view>
+  <view class="back_top iconfont .icon-shang1 {{back_top_show?'back_top_show':''}}" bindtap="back_top"></view>
+</view>

@@ -1,0 +1,84 @@
+<!--pages/classify/classify.wxml-->
+<view class="container">
+  <view class="head">
+    <view class="head_back iconfont icon-fanhui" bindtap="historyBack"></view>
+    <view class="head_search" bindtap="toSearch">
+      <view class="iconfont search_icon icon-sousuo"></view>
+      <view class="head_text">好宝宝 等你搜</view>
+    </view>
+  </view>
+  <scroll-view scroll-y="true" class="left">
+    <view class="item {{item.code==code?'active':''}}" wx:for="{{Shopping}}" wx:key="index" bindtap="classifySearch" data-code="{{item.code}}">{{item.name}}</view>
+  </scroll-view>
+  <view class="right_z" wx:if="{{products.length==0}}">
+    <view class="items">
+      <view class="title"></view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view style="clear:both;"></view>
+    </view>
+    <view class="items">
+      <view class="title"></view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view class="cat_item">
+        <view class="img"></view>
+        <view class="text"></view>
+      </view>
+      <view style="clear:both;"></view>
+    </view>
+  </view>
+  <van-toast id="van-toast"/>
+  <scroll-view scroll-y="true" class="right" wx:if="{{products.length!=0}}">
+    <view class="items" wx:for="{{products}}" wx:key="index">
+      <view class="title">{{item.name}}</view>
+      <view class="cat_item" wx:for="{{item.data}}" wx:key="index" bindtap="classifyItem">
+        <image class="img" src="{{imgServer+item.imgUrl}}"></image>
+        <view class="text">
+          {{item.name}}
+        </view>
+      </view>
+      <view style="clear:both;"></view>
+    </view>
+  </scroll-view>
+</view>

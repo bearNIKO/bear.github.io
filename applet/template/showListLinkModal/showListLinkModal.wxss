@@ -1,0 +1,54 @@
+.showListLinkModal {
+  position: fixed;
+  top: 100rpx;
+  right: 0;
+  z-index: 100;
+  transition: all 1s ease;
+}
+.showListLinkModal .arrow {
+  position: absolute;
+  right: 36rpx;
+  width: 0;
+  height: 0;
+  border-left: 20rpx solid transparent;
+  border-right: 20rpx solid transparent;
+  border-bottom: 20rpx solid rgba(51,51,51,.9);
+  border-top: none;
+  top: 0;
+  z-index: 100;
+  opacity: 0;
+  transform: translateX(300rpx);
+  transition: all 1s ease;
+}
+.showListLinkModal .arrow.active {
+  transform: translateX(0rpx);
+  opacity: 1;
+}
+.showListLinkModal .mask.active {
+  transform: translateX(0rpx);
+  opacity: 1;
+}
+.showListLinkModal .mask {
+  position: absolute;
+  right: 10rpx;
+  width: 240rpx;
+  top: 20rpx;
+  border-radius: 10rpx;
+  opacity: 0;
+  background: rgba(51,51,51,.9);
+  transform: translateX(300rpx);
+  transition: all 1.2s ease;
+}
+.showListLinkModal .mask .mask_item {
+  width: 90%;
+  height: 92rpx;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 92rpx;
+  color: #fff;
+  font-size: 30rpx;
+  border-bottom: 1px solid hsla(0,0%,40%,.9);
+}
+.showListLinkModal .mask .mask_item:active {
+  background: rgba(100,255,255,.1);
+}

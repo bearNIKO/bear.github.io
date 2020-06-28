@@ -1,0 +1,100 @@
+<!--pages/odds/odds.wxml-->
+<import src="/template/showListLinkModal/showListLinkModal.wxml"/>
+<view class="container">
+  <view class="head">
+    <view class="head_title">
+      <image src="./images/nine_title.svg" class="img"></image>
+    </view>
+    <text class="head_option iconfont icon-xuanxiang" bindtap="showListsLink"></text>
+  </view>
+  <view class="head_box"></view>
+  <scroll-view scroll-y='true'>
+  <view class="nine_tab">
+    <view class="nine_tab_items" wx:for="{{nine_tab}}" wx:key="index">
+      <view class="nine_tab_items_a" wx:for="{{item.data}}" wx:for-item="data" wx:key="index" bindtap="onToastErr">
+        <image class="img" src="{{imgServer+data.imgUrl}}"></image>
+        <view class="title {{data.class}}">{{data.title}}</view>
+        <view class="text">{{data.text}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="goods_sticky" id="goodsNav">
+    <scroll-view scroll-x="true" class="title {{goodsNavFixed?'fixed':''}}">
+      <view class="item" wx:for="{{nav_tab}}" wx:key="index" data-code="{{item.code}}" bindtap="navSearch">
+        <view class="text {{code==item.code?'active':''}}">
+          {{item.title}}
+          <text class="bottom {{code==item.code?'active':''}}"></text>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="{{goodsNavFixed?'sticky_box':''}}"></view>
+    <view class="hot" wx:if="{{goods.hots}}">
+      <view class="hot_items" wx:for="{{goods.hots}}" wx:key="index">
+        <view class="hot_items_title">
+          <image src="./images/nine_tab_left.svg" class="img"></image>
+          {{item.title}}
+          <image src="./images/nine_tab_right.svg" class="img"></image>
+        </view>
+        <view class="hot_items_slide">
+          <view class="slide_box">
+            <view class="slide_item" wx:for="{{item.datas}}" wx:for-item="datas" wx:key="index" bindtap="onToastErr">
+              <view class="cent">
+                <image src="{{imgServer+datas.imgUrl}}" class="img"></image>
+                <view class="text" wx:if="{{datas.age}}">疯狂 {{datas.age}} 件</view>
+              </view>
+              <view class="name">{{datas.text}}</view>
+              <view class="money">¥{{datas.money}}</view>
+            </view>
+             <view class="slide_all" bindtap="onToastErr">
+              <image class="more" src="./images/nine_more_bag.png"></image>
+              <view class="text">共50件商品</view>
+              <image class="go" src="./images/nine_new.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style="height: 10rpx;background-color: #F5F5F5;"></view>
+    <view class="nine_h3bt_title">
+      <image class="bg" src="./images/nine_tab_bg.svg"></image>
+      <image class="img" src="./images/nine_tab_left_tow.svg"></image>
+      <text class="text">精品推荐</text>
+      <image class="img" src="./images/nine_tab_right_tow.svg"></image>
+    </view>
+    <view class="goodsList">
+      <view class="goodsItems" wx:for="{{goods.goods}}" wx:key="index" data-goodsID="{{item.goodsID}}" bindtap="toGoodsInfo">
+        <view class="cent">
+          <image class="img" src="{{imgServer+item.imgUrl}}"></image>
+          <view class="mar">
+            <view class="title">
+              <image class="icon" src="./images/lable-icon-02.png"></image>{{item.title}}
+            </view>
+            <view class="product_info">
+              <view class="price">
+                <image class="ju" src="./images/juhuasuan.png" wx:if="{{item.ju}}"></image>
+                <text>卷后</text>
+                <text class="RMB">¥</text>
+                <text class="price_num">{{item.price}}</text>
+                <text wx:if="{{item.limit}}" class="red_bubble">限时价</text>
+              </view>
+              <view class="label_box">
+                <text wx:if='{{item.label}}' class="icon">{{item.label}}</text>
+                <view class="juan">
+                  <text class="text">券</text>
+                  {{item.juan}}元
+                </view>
+              </view>
+              <view class="salse">
+                已售{{item.oldsell}}万<text class="shu"></text>评论{{item.comment}}万
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+  <van-toast id="van-toast"/>
+  <view class="back_top iconfont .icon-shang1 {{back_top_show?'back_top_show':''}}" bindtap="back_top"></view>
+</view>
+<template is="showListLinkModal" data="{{showListsLinks, toIndex, toSearch, toCustomer, toFeedBack, toMy}}" ></template>

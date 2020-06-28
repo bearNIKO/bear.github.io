@@ -1,0 +1,82 @@
+/* pages/tool/orderInfo/orderInfoItem/orderInfoItem.wxss */
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #F5F5F5;
+}
+.container .head {
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #333;
+  font-size: 40rpx;
+  background: #fff;
+  border-bottom: 2rpx solid #ddd;
+}
+.container .nav{
+  width: 100%;
+  height: 1078rpx;
+  margin-top: 20rpx;
+  background: #fff;
+}
+.container .nav .order_null {
+  padding: 40rpx 20rpx;
+  overflow: hidden;
+}
+.container .nav .order_null .logo {
+  width: 300rpx;
+  height: 280rpx;
+  box-sizing: border-box;
+  margin: 40rpx auto 20rpx;
+}
+.container .nav .order_null .logo .img {
+  width: 100%;
+  height: 100%;
+}
+.container .nav .order_null .msg {
+  margin: 0 auto 20rpx;
+  width: 216rpx;
+  height: 50rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: #4a4a4a;
+  line-height: 50rpx;
+}
+.container .nav .order_null .info {
+  height: 260rpx;
+  background: #eee;
+  border-radius: 20rpx;
+  padding: 32rpx 40rpx;
+}
+.container .nav .order_null .info .title {
+  height: 40rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: #666;
+  line-height: 40rpx;
+  margin-bottom: 18rpx;
+}
+.container .nav .order_null .info .step {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #666;
+  line-height: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.container .nav .order_null .btn {
+  width: 640rpx;
+  height: 96rpx;
+  background: linear-gradient(270deg,#ff4950 0,#fb8d2c 100%);
+  border-radius: 8rpx;
+  margin: 40rpx auto auto;
+  font-size: 30rpx;
+  color: #fff;
+  line-height: 96rpx;
+  text-align: center;
+}

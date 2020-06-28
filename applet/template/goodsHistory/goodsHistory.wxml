@@ -1,0 +1,34 @@
+<!--template/goodsHistory/goodsHistory.wxml-->
+<template name="goodsHistory">
+  <view class="print_list_items" wx:if="{{userPrints.length}}">
+    
+    <view data-goodsid="{{item.goodsID}}" class="print_list_item" bindtap="toGoodsInfo" wx:for="{{userPrints}}" wx:key="index">
+      <van-swipe-cell right-width="{{ 90 }}" >
+        <van-cell-group>
+          <image class="img"  src="{{imgServer+item.swiper[0]}}" bindtap="toGoodsInfo" data-goodsid="{{item.goodsID}}"></image>
+          <view class="info">
+            <view class="title" bindtap="toGoodsInfo" data-goodsid="{{item.goodsID}}">
+              <image class="tm" src="./images/tm.png"></image>{{item.title}}
+            </view>
+            <view class="product_info">
+              <view class="price">
+                券后<text class="rmb">￥</text><text class="price_num">{{item.price}}</text>
+              </view>
+              <view class="label_box">
+                <text wx:if='{{item.label}}' class="icon">{{item.label}}</text>
+                <view class="juan">
+                  <text class="text">券</text>
+                  {{item.juan}}元
+                </view>
+              </view>
+              <view class="comment">
+                已售{{item.comment}}万
+              </view>
+            </view>
+          </view>
+        </van-cell-group>
+        <view slot="right" class="delete" data-index='{{index}}' bindtap="delPrintItem">删除</view>
+      </van-swipe-cell>
+    </view> 
+  </view>
+</template>
